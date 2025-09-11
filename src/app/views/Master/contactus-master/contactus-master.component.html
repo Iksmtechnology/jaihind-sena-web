@@ -1,0 +1,84 @@
+<!-- <div class="container mt-4">
+  <div class="row align-items-center mb-3">
+    <div class="col-12 col-md-8">
+      <h5 class="fw-bold">{{ formTitle }}</h5>
+    </div>
+  </div>
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-light">
+      <tr>
+        <th>#</th>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Selected Services</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contactList; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ contact.firstName }} {{ contact.lastName }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.phoneNumber }}</td>
+        <td>{{ contact.service }}</td>
+        <td>{{ contact.message }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+
+<div class="container mt-4">
+  <h2 class="mb-4">Contact Us</h2>
+
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-control" formControlName="name" />
+        <small class="text-danger" *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid">
+          Full name is required
+        </small>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Subject</label>
+        <input type="text" class="form-control" formControlName="subject" />
+        <small class="text-danger" *ngIf="contactForm.get('subject')?.touched && contactForm.get('subject')?.invalid">
+          Subject is required
+        </small>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="email" />
+        <small class="text-danger" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid">
+          Please enter a valid email
+        </small>
+      </div>
+
+      <div class="col-md-6 mb-3">
+        <label class="form-label">Contact</label>
+        <input type="text" class="form-control" formControlName="contact" />
+        <small class="text-danger" *ngIf="contactForm.get('contact')?.touched && contactForm.get('contact')?.invalid">
+          Contact is required
+        </small>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Message</label>
+      <textarea rows="3" class="form-control" formControlName="message"></textarea>
+      <small class="text-danger" *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid">
+        Message must be at least 10 characters
+      </small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

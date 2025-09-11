@@ -1,0 +1,632 @@
+<nav #navbar class="navbar navbar-expand-lg shadow-sm py-2 sticky-top" [ngClass]="{ 'scrolled': isScrolled }">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
+      <!-- <img src="assets/Logo.jpeg" height="40" /> -->
+      <img src="assets/image/logo.png" alt="Logo" class="custom-logo" />
+      <span class="fw-bold text-uppercase small">
+        <img src="assets/image/jhs-titile.jpeg" alt="Logo" style="height: 38px;" />
+        <!-- {{ selectedLang === 'en' ? 'JAY HIND SENA' : 'जय हिंद सेना' }} -->
+      </span>
+    </a>
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Nav Links + Search + Icons -->
+    <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+      <ul class="navbar-nav align-items-center mb-2 mb-lg-0 me-3">
+        <li class="nav-item">
+          <a class="nav-link text-danger fw-bold" [class.active]="activeSection === 'home'" [routerLink]="['/']">
+            {{ selectedLang === 'en' ? 'Home' : 'मुख्यपृष्ठ' }}
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+            [ngClass]="{ 'active': activeSection === 'about' || activeSection === 'leadership' || activeSection === 'join-member' || activeSection === 'news-press' }">
+            {{ selectedLang === 'en' ? 'About Us' : 'आमच्याबद्दल' }}
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" [class.active]="activeSection === 'about'" href="#about">
+                {{ selectedLang === 'en' ? 'Our Journey' : 'आपली वाटचाल' }}
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" [class.active]="activeSection === 'leadership'" href="#leadership">
+                {{ selectedLang === 'en' ? 'Leadership' : 'नेतृत्व' }}
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" [class.active]="activeSection === 'join-member'" href="#join-member">
+                {{ selectedLang === 'en' ? 'Join as Member' : 'सदस्य म्हणून सहभागी व्हा' }}
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" [class.active]="activeSection === 'news-press'" href="#news-press">
+                {{ selectedLang === 'en' ? 'News & Press' : 'बातम्या आणि प्रसारमाध्यमे' }}
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="activeSection === 'gallery'" href="#gallery">
+            {{ selectedLang === 'en' ? 'Gallery' : 'गॅलरी' }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="activeSection === 'contact'" href="#contact">
+            {{ selectedLang === 'en' ? 'Contact Us' : 'संपर्क करा' }}
+          </a>
+        </li>
+      </ul>
+      <!-- Social Icons and Button -->
+      <div class="d-flex align-items-center gap-3">
+        <a href="https://www.facebook.com/chandan.chavan3" target="_blank"><i class="fab fa-facebook text-dark"></i></a>
+        <a href="https://x.com/i/flow/login" target="_blank"><i class="fab fa-twitter text-dark"></i></a>
+        <a href="https://www.youtube.com/watch?v=LZq0KZFAfmE" target="_blank"><i
+            class="fab fa-youtube text-dark"></i></a>
+        <a href="https://www.instagram.com/chandan_chavan3" target="_blank"><i
+            class="fab fa-instagram text-dark"></i></a>
+
+        <button class="btn btn-primary btn-sm fw-semibold" [routerLink]="['/donation']">
+          {{ selectedLang === 'en' ? 'Make A Donation' : 'देणगी द्या' }}
+        </button>
+        <button (click)="toggleLanguage()" class="btn btn-outline-secondary btn-sm ms-2">
+          {{ selectedLang === 'en' ? 'मराठी' : 'English' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<section class="hero-section" id="home" observeSection (sectionInView)="onSectionChange($event)">
+
+  <div class="hero-bg-blur">
+    <!-- <button type="button" class="btn  contact-btn" (click)="downloadPdf()">About us</button> -->
+    <button type="button" class="btn  contact-btn" [routerLink]="['/about-us']">About us</button>
+  </div>
+</section>
+
+<!-- Leadership -->
+<section class="team-section py-5  text-dark" id="leadership" observeSection (sectionInView)="onSectionChange($event)">
+  <div class="container">
+    <h2 class="fw-bold">
+      {{ selectedLang === 'en' ? 'Leadership' : 'नेतृत्व' }}
+    </h2>
+    <div class="row justify-content-center text-center">
+
+      <!-- Team Member Card -->
+      <div class="row">
+        <div class="col-md-3 mb-4" *ngFor="let leader of leaders">
+          <div class="team-card p-4 bg-white shadow-sm">
+            <img [src]="leader.image" alt="{{ leader.title[selectedLang] }}" class="img-fluid rounded-circle mb-3"
+              height="130" width="130">
+
+            <h6 class="fw-bold">{{ leader.title[selectedLang] }}</h6>
+            <p class="mb-2">{{ leader.subtitle[selectedLang] }}</p>
+
+            <div class="social-icons">
+              <a href="#" class="me-3 text-dark"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="me-3 text-dark"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="text-dark"><i class="bi bi-linkedin"></i></a>
+            </div>
+
+            <button type="button" class="btn btn-outline-primary mt-4" [routerLink]="['/leader', leader.id]">
+              Know More
+            </button>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-outline-secondary mt-4 view-all-btn" [routerLink]="['/jhs-leadership']">
+        VIEW All
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- journy-leader -->
+<section class="join-section py-5 text-white" id="join-member" observeSection (sectionInView)="onSectionChange($event)">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Left Image -->
+      <div class="col-md-6 text-center mb-4 mb-md-0">
+        <img src="assets/image/journy-jeader-image.png" alt="Join Badge" class="img-fluid" style="max-height: 400px" />
+      </div>
+
+      <!-- Right Content -->
+      <div class="col-md-6">
+        <h1 class="display-4 fw-bold">
+          {{ joinContent.heading[selectedLang] }}
+        </h1>
+
+        <p class="fs-5 mb-3">
+          {{ joinContent.subheading[selectedLang] }}
+        </p>
+
+        <h4 class="fw-bold" [innerHTML]="joinContent.joinLine[selectedLang]"></h4>
+
+        <p class="mb-4">
+          {{ joinContent.paragraph[selectedLang] }}
+        </p>
+
+        <div class="d-flex flex-wrap gap-3">
+          <a class="btn btn-light fw-semibold px-4 py-2" href="#" [routerLink]="['/become-leader-member']">
+            {{ joinContent.becomeMemberBtn[selectedLang] }}
+          </a>
+          <a class="btn btn-primary  fw-semibold px-4 py-2 text-white" href="#" [routerLink]="['/donation']">
+            {{ joinContent.donateBtn[selectedLang] }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="journey-section py-5" id="about" observeSection (sectionInView)="onSectionChange($event)">
+  <div class="container ">
+    <h2 class="fw-bold mb-4">
+      {{ selectedLang === 'en' ? 'Our Journey' : 'आमचा प्रवास' }}
+    </h2>
+    <div class="container journey-section py-4">
+      <div class="row justify-content-center align-items-center">
+
+        <!-- Content -->
+        <div class="col-md-8 col-12 mb-3 mb-md-0" *ngIf="activeData">
+          <div class="journey-card p-4 h-100">
+            <h4 class="fw-bold text-white">
+              {{ selectedLang === 'en' ? activeData?.title?.en : activeData?.title?.mr }}
+            </h4>
+            <ul class="mt-3">
+              <li *ngFor="let point of selectedLang === 'en' ? activeData?.points?.en : activeData?.points?.mr"
+                class="text-white">
+                {{ point }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="col-md-4 col-12 text-center">
+          <img [src]="activeData.image" class="img-fluid rounded shadow" style="max-height: 256px;
+    width: 100%;" alt="Journey Image">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="timeline-container mt-4">
+      <!-- Left Arrow -->
+      <button class="arrow-btn left" (click)="scrollLeft()">
+        ‹
+      </button>
+
+      <!-- Scrollable Years -->
+      <div class="timeline-nav" #scrollContainer>
+        <div class="timeline-scroll">
+          <span *ngFor="let year of years" class="timeline-year" [class.active]="year === activeYear"
+            (click)="selectYear(year)">
+            {{ year }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Right Arrow -->
+      <button class="arrow-btn right" (click)="scrollRight()">
+        ›
+      </button>
+    </div>
+
+    <!-- <div class="timeline-nav mt-4">
+  <div class="timeline-scroll">
+    <span *ngFor="let year of years"
+          class="timeline-year"
+          [class.active]="year === activeYear"
+          (click)="selectYear(year)">
+      {{ year }}
+    </span>
+  </div>
+</div> -->
+    <!-- <div class="timeline-nav text-center mt-4">
+      <span *ngFor="let year of years" class="timeline-year" [class.active]="year === activeYear"
+        (click)="selectYear(year)">
+        {{ year }}
+      </span>
+    </div> -->
+  </div>
+</section>
+
+<!-- media -->
+<section class="container  py-4" id="gallery" observeSection (sectionInView)="onSectionChange($event)">
+  <h2 class="fw-bold mb-4">
+    {{ selectedLang === 'en' ? 'Like, Share & Subscribe!' : 'लाइक, शेयर आणि सब्सक्राइब करा!' }}
+  </h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <a href="https://www.facebook.com/chandan.chavan3" target="_blank">
+        <div class="card shadow-sm p-3 position-relative">
+
+          <!-- Header -->
+          <div class="d-flex align-items-center mb-2">
+            <img src="assets/image/logo.png" class="profile-pic me-2" />
+            <div>
+              <strong> {{ selectedLang === 'en' ? 'Jay Hind Sena' : 'जय हिंद सेना' }}</strong>
+              <div class="text-muted">
+                {{ selectedLang === 'en' ? 'jayhindsenaonline' : 'जयहिंदसेना_ऑनलाईन' }} ·
+                <a class="text-decoration-none">
+                  {{ selectedLang === 'en' ? 'Follow' : 'अनुसरण करा' }}
+                </a>
+              </div>
+            </div>
+            <button class="btn btn-lg ms-auto"><i class="fab fa-facebook text-dark"></i></button>
+          </div>
+
+          <!-- Video Preview -->
+          <div class="position-relative">
+            <img src="assets/image/news-vedio-img/news-vedio-1-img.png" class="img-fluid rounded" />
+            <div class="position-absolute top-50 start-50 translate-middle">
+              <button class="btn btn-light btn-circle rounded-circle px-3 py-2">▶</button>
+            </div>
+          </div>
+
+          <!-- Caption -->
+          <p class="mt-3 fw-medium">
+            {{ selectedLang === 'en' ? 'Jay Hind Sena in 2025' : 'जय हिंद सेना 2025 में' }}
+            {{ currentDate | date:'y,MMM' }}
+          </p>
+
+          <!-- Date & Time -->
+          <small class="text-muted">
+            {{ currentDate | date:'shortTime' }} · {{ currentDate | date:'MMM d, y' }}
+          </small>
+
+          <!-- Actions -->
+          <div class="d-flex justify-content-between mt-3 text-muted">
+            <span>❤️ 465</span>
+            <a href="#" class="text-decoration-none">
+              {{ selectedLang === 'en' ? 'Reply' : 'उत्तर द्या' }}
+            </a>
+            <a href="#" class="text-decoration-none">
+              {{ selectedLang === 'en' ? 'Copy link' : 'लिंक कॉपी करा' }}
+            </a>
+            <a href="#" class="text-decoration-none">
+              {{ selectedLang === 'en' ? '30 replies' : '३० उत्तरं' }}
+            </a>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="https://www.instagram.com/chandan_chavan3/" target="_blank">
+        <div class="card shadow-sm p-3 position-relative h-100">
+          <!-- Header -->
+          <div class="card-header d-flex align-items-center justify-content-between bg-white border-0">
+            <div class="d-flex align-items-center">
+              <img src="assets/image/logo.png" alt="Profile" class="profile-pic me-2">
+              <div>
+                <h6 class="mb-0 fw-bold">
+                  {{ selectedLang === 'en' ? 'Jay Hind Sena' : 'जय हिंद सेना' }}
+                </h6>
+                <small class="text-muted">
+                  {{ selectedLang === 'en' ? 'India, Sangli Maharashtra' : 'भारत, सांगली महाराष्ट्र' }}
+                </small>
+              </div>
+            </div>
+            <button class="btn btn-lg ms-auto"><i class="fab fa-instagram text-dark"></i></button>
+          </div>
+
+          <!-- Post Image -->
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" class="card-img-top" alt="Post">
+          <!-- Caption -->
+          <p class="mt-3 fw-medium">
+            {{ selectedLang === 'en' ? 'Jay Hind Sena' : 'जय हिंद सेना' }}
+            {{ currentDate | date:'y,MMM' }}
+          </p>
+
+          <!-- Date & Time -->
+          <small class="text-muted">
+            {{ currentDate | date:'shortTime' }} · {{ currentDate | date:'MMM d, y' }}
+          </small>
+
+          <!-- Footer -->
+          <div class="card-body p-2">
+            <div class="d-flex justify-content-between mb-2">
+              <div class="d-flex gap-3">
+                <i class="bi bi-heart fs-4"></i>
+                <i class="bi bi-chat fs-4"></i>
+                <i class="bi bi-send fs-4"></i>
+              </div>
+              <i class="bi bi-bookmark fs-4"></i>
+            </div>
+            <!-- Example: Likes -->
+            <!-- <small class="fw-bold">{{ selectedLang === 'en' ? '1,024 likes' : '१,०२४ आवडले' }}</small> -->
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a href="https://x.com/i/flow/login" target="_blank">
+        <div class="card shadow-sm p-3 position-relative h-100">
+          <!-- Header -->
+          <div class="d-flex align-items-center mb-2">
+            <img src="assets/image/logo.png" alt="Profile" class="profile-pic me-2">
+            <div>
+              <strong>
+                {{ selectedLang === 'en' ? 'Jay Hind Sena' : 'जय हिंद सेना' }}
+                <i class="bi bi-patch-check-fill text-primary"></i>
+              </strong>
+              <div class="text-muted">
+                {{ selectedLang === 'en' ? 'Chandandada Chavan.twt' : 'चंदनदादा चव्हाण.twt' }} · 14h
+              </div>
+            </div>
+            <button class="btn btn-lg ms-auto"><i class="fab fa-twitter text-dark ms-auto"></i></button>
+
+          </div>
+
+          <!-- Post Image -->
+          <div class="post-image rounded">
+            <img src="assets/image/news-vedio-img/news-vedio-1-img.png" class="img-fluid rounded" alt="Post">
+          </div>
+
+          <!-- Caption -->
+          <p class="mt-3 fw-medium">
+            {{ selectedLang === 'en' ? 'Jay Hind Sena' : 'जय हिंद सेना' }}
+            {{ currentDate | date:'y,MMM' }}
+          </p>
+
+          <!-- Date & Time -->
+          <small class="text-muted">
+            {{ currentDate | date:'shortTime' }} · {{ currentDate | date:'MMM d, y' }}
+          </small>
+
+          <!-- Footer Actions -->
+          <div class="d-flex justify-content-between mt-3 text-muted small">
+            <span><i class="bi bi-chat"></i> 482</span>
+            <span><i class="bi bi-arrow-repeat"></i> 157</span>
+            <span><i class="bi bi-heart"></i> 3.9K</span>
+            <span><i class="bi bi-bar-chart"></i> 147K</span>
+            <i class="bi bi-upload"></i>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class=" container gallery-section py-5">
+  <h2 class="fw-bold mb-4 ">
+    {{ selectedLang === 'en' ? 'Our Gallery' : 'आमचा गॅलरी' }}
+  </h2>
+  <div class="container">
+    <!-- Filter Buttons -->
+    <div class="text-center mb-4">
+      <button *ngFor="let filter of filters" class="btn btn-lg me-2 mb-2" [ngClass]="{
+                'btn-orange': activeFilter === filter,
+                'btn-warning': activeFilter !== filter
+              }" (click)="setFilter(filter)">
+        {{ filter }}
+      </button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="row g-3">
+      <div class="col-6 col-md-4 col-lg-3" *ngFor="let image of filteredGallery">
+        <img [src]="image.url" class="img-fluid rounded shadow-sm gallery-img" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- प्रेस वार्ता -->
+<section class="container video-gallery py-4" id="news-press" observeSection (sectionInView)="onSectionChange($event)">
+  <!-- <h5 class="mb-4"><i class="bi bi-pin-angle-fill me-2"></i>
+    {{ selectedLang === 'en' ? 'Press Conference' : 'प्रेस वार्ता' }}</h5> -->
+  <h2 class="fw-bold mb-4">
+    <i class="bi bi-pin-angle-fill me-2"></i> {{ selectedLang === 'en' ? 'Press Conference' : 'प्रेस वार्ता' }}
+  </h2>
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let video of pressVideos">
+      <div class="video-card position-relative overflow-hidden rounded-4 shadow-sm"
+        (click)="openNewsVideo(video.videoUrl)">
+        <!-- Thumbnail -->
+        <img [src]="video.thumbnail" class="img-fluid w-100 bw-thumbnail" alt="Video thumbnail">
+        <!-- Overlay Play Button -->
+        <div class="overlay d-flex justify-content-center align-items-center">
+          <i class="bi bi-play-circle-fill fs-1 text-white"></i>
+        </div>
+        <!-- Title -->
+        <div class="video-title text-center text-white fw-semibold py-2 px-2">
+          {{ video.title[selectedLang] }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let video of getVideoList">
+      <div class="video-card position-relative overflow-hidden rounded-4 shadow-sm"
+        (click)="openNewsVideo(video.video_link)">
+        <!-- Thumbnail -->
+        <img *ngIf="video.photo" [src]="'data:image/jpeg;base64,' + video.photo" class="img-fluid w-100 bw-thumbnail"
+          style="height: 220px;" alt="Video thumbnail">
+        <!-- Overlay Play Button -->
+        <div class="overlay d-flex justify-content-center align-items-center">
+          <i class="bi bi-play-circle-fill fs-1 text-white"></i>
+        </div>
+        <!-- Title -->
+        <div class="video-title text-center text-white fw-semibold py-2 px-2">
+          {{ video.title }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class=" container video-gallery py-4" id="news-press" observeSection (sectionInView)="onSectionChange($event)">
+  <h2 class="fw-bold mb-4"><i class="bi bi-file-earmark-text me-2"></i> {{ newsMediaHeading[selectedLang] }}</h2>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let video of newsVideos">
+      <div class="video-card position-relative overflow-hidden rounded-4 shadow-sm"
+        (click)="openNewsVideo(video.videoUrl)">
+
+        <!-- Thumbnail -->
+        <img [src]="video.thumbnail" class="img-fluid w-100 bw-thumbnail" alt="Video thumbnail">
+
+        <!-- Overlay Play Button -->
+        <div class="overlay d-flex justify-content-center align-items-center">
+          <i class="bi bi-play-circle-fill fs-1 text-white"></i>
+        </div>
+
+        <!-- Title -->
+        <div class="video-title text-center text-white fw-semibold py-2 px-2">
+          {{ video.title[selectedLang] }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact" observeSection (sectionInView)="onSectionChange($event)">
+  <div class="container">
+    <div class="row g-4 contact-wrapper">
+
+      <!-- Contact Form -->
+      <div class="col-md-6 col-12">
+        <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <!-- Full Name -->
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" formControlName="name" placeholder="Enter your name" />
+              <small class="text-danger" *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid">
+                Full name is required
+              </small>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Contact</label>
+              <input type="tel" class="form-control" maxlength="10" inputmode="numeric" pattern="[0-9]*"
+                formControlName="contact" placeholder="Enter phone number" />
+              <small class="text-danger"
+                *ngIf="contactForm.get('contact')?.touched && contactForm.get('contact')?.invalid">
+                Contact is required
+              </small>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="Enter your email" />
+            <small class="text-danger" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid">
+              Valid email is required
+            </small>
+          </div>
+
+          <!-- Message -->
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea rows="5" class="form-control" formControlName="message"
+              placeholder="Enter your message here..."></textarea>
+            <small class="text-danger"
+              *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid">
+              Message is required
+            </small>
+          </div>
+
+          <!-- Submit -->
+          <div>
+            <button type="submit" class="btn btn-primary w-100" [disabled]="contactForm.invalid">
+              Send Your Message
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- India Map -->
+      <div class="col-md-6 col-12">
+        <div class="contact-map shadow-sm">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7636.12972738483!2d74.59876181508717!3d16.872685585449116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc122a4fdd4a655%3A0x9e76756d33f7771e!2sKupwad%2C%20Sangli%2C%20Maharashtra%20416436!5e0!3m2!1sen!2sin!4v1754889902847!5m2!1sen!2sin"
+            width="100%" height="100%" style="border:0; min-height: 350px;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+
+      <!-- Left Section -->
+      <div class="footer-left">
+        <h2 class="logo">
+          {{ selectedLang === 'en' ? 'The POLITICN' : 'द पॉलिटिशियन' }}
+        </h2>
+        <p>
+          {{ selectedLang === 'en'
+          ? 'Jay Hind Sena is a movement working for the upliftment of the common man and the national interest. Become
+          a part of this journey and contribute to the making of New India.'
+          : 'जय हिंद सेना हा एक आंदोलन आहे जे सामान्य माणसाच्या उन्नतीसाठी आणि राष्ट्रीय हितासाठी कार्य करते. या
+          प्रवासाचा भाग व्हा आणि नव्या भारताच्या निर्मितीत योगदान द्या.'
+          }}
+        </p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/chandan.chavan3" target="_blank"><i
+              class="fab fa-facebook text-white"></i></a>
+          <a href="https://x.com/i/flow/login" target="_blank"><i class="fab fa-twitter text-white"></i></a>
+          <a href="https://www.youtube.com/watch?v=LZq0KZFAfmE" target="_blank"><i
+              class="fab fa-youtube text-white"></i></a>
+          <a href="https://www.instagram.com/chandan_chavan3/" target="_blank"><i
+              class="fab fa-instagram text-white"></i></a>
+        </div>
+      </div>
+
+      <!-- Center Section -->
+      <div class="footer-center">
+        <h3>{{ selectedLang === 'en' ? 'SUPPORTS' : 'समर्थन' }}</h3>
+        <div class="supports">
+          <ul>
+            <li>{{ selectedLang === 'en' ? 'Rural Support' : 'ग्रामीण समर्थन' }}</li>
+            <li>{{ selectedLang === 'en' ? 'Gunthewari Paperwork Support' : 'गुंठेवारी कागदपत्र सहाय्य' }}</li>
+            <li>{{ selectedLang === 'en' ? 'Political Awareness' : 'राजकीय जाणीव' }}</li>
+          </ul>
+          <ul>
+            <li>{{ selectedLang === 'en' ? 'Skill Development' : 'कौशल्य विकास' }}</li>
+            <li>{{ selectedLang === 'en' ? 'Democracy' : 'लोकशाही' }}</li>
+            <li>{{ selectedLang === 'en' ? 'Leadership' : 'नेतृत्व' }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Section -->
+      <div class="footer-right"  href="https://www.instagram.com/chandan_chavan3/" target="_blank">
+        <h3>INSTAGRAM</h3>
+        <div class="instagram-images">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>Copyright © 2025. All Right Reserved</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,258 @@
+/* nav-bar */
+.nav-link {
+  cursor: pointer;
+}
+
+;
+
+nav.navbar {
+  position: sticky !important;
+  top: 0;
+}
+
+;
+
+nav.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+nav.navbar.scrolled {
+  background-color: #fff;
+  /* Solid color when scrolled */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+nav.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+}
+
+nav.scrolled {
+  background-color: #fff;
+  transition: background-color 0.3s;
+}
+
+// nav bar end
+
+
+
+
+.custom-logo {
+  width: 80px;
+  height: 65px;
+  object-fit: contain;
+  /* Optional: keeps image from stretching */
+}
+
+
+
+.hero-section {
+  position: relative;
+  min-height: 94vh;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: -23px;
+}
+
+.hero-bg-blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+
+.hero-bg-blur img {
+  max-width: 90%;
+  /* ✅ padding सारखा effect */
+  max-height: 90%;
+  object-fit: contain;
+  // padding: 20px;    /* खरं padding */
+}
+
+
+/* ✅ Mobile responsive */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 70vh; /* छोट्या screen साठी कमी उंची */
+    margin-top: 0;
+  }
+
+  .hero-bg-blur img {
+    max-width: 95%;   /* image थोडा जास्त मोठा */
+    max-height: 80vh; /* उंची screen प्रमाणे */
+    padding: 10px;    /* थोडा gap */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 27vh; /* आणखी compact */
+  }
+
+  .hero-bg-blur img {
+    max-width: 100%;  /* ✅ small mobile वर full width */
+    max-height: 70vh;
+    padding: 5px;
+  }
+}
+
+/* Responsive */
+// @media (max-width: 768px) {
+//   .hero-title {
+//     font-size: 2rem;
+//   }
+
+//   .hero-subtitle {
+//     font-size: 1rem;
+//   }
+// }
+
+
+
+/* footer */
+.footer {
+  background-color: #2d2d2d;
+  color: #fff;
+  padding: 40px 0;
+  font-family: Arial, sans-serif;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  margin: 15px;
+}
+
+.logo span {
+  color: white;
+  font-weight: bold;
+}
+
+.footer-left p {
+  margin: 20px 0;
+}
+
+.social-icons i {
+  margin-right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.footer-center h3,
+.footer-right h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.supports {
+  display: flex;
+  gap: 30px;
+}
+
+.supports ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.supports li {
+  margin: 5px 0;
+}
+
+.instagram-images {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.instagram-images img {
+  width: 100%;
+  height: auto;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+
+/* ------------------- LIGHT MODE ------------------- */
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.navbar.light-mode {
+  background-color: #f8f9fa !important;
+  color: #000000 !important;
+}
+
+.navbar.light-mode .nav-link {
+  color: #000000 !important;
+}
+
+/* ------------------- DARK MODE ------------------- */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.navbar.dark-mode {
+  background-color: #1f1f1f !important;
+  color: #ffffff !important;
+}
+
+.navbar.dark-mode .nav-link {
+  color: #ffffff !important;
+}
+
+.navbar.dark-mode .navbar-brand,
+.navbar.dark-mode .nav-link.active,
+.navbar.dark-mode .nav-link:hover {
+  color: #FF7052 !important;
+  /* Highlight text on hover/active */
+}
+
+/* Optional: Override links, headings, etc. */
+body.dark-mode a {
+  color: #FF7052;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #ffffff;
+}

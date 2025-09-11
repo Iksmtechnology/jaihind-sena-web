@@ -1,0 +1,77 @@
+<!-- <body>
+<div class="id-card-wrapper" id="idCard">
+  <div class="id-card">
+<div class="id-header">
+  <img src="assets/image/logo.png" alt="Logo" class="logo">
+  <h2 class="title">Jay Hind Sena</h2>
+</div>
+
+    <div class="photo-container">
+      <img src="assets/image/leader-image-1.jpg" alt="Photo" class="photo">
+    </div>
+
+    <div class="id-details">
+      <h3 class="name">MR. JOHN DOE</h3>
+      <h4 class="designation">Role - Leader</h4>
+      <p><strong>ID NUMBER:</strong><br> DVS111222333</p>
+      <p><strong>PHONE:</strong><br> +91 1234567890</p>
+      <p><strong>EMAIL:</strong><br> emailaddress&#64;gmail.com</p>
+      <p><strong>ADDRESS:</strong><br> ASSAM, INDIA</p>
+    </div>
+
+    <div class="id-footer">
+      www.jayhindsena.org
+    </div>
+  </div>
+</div>
+  <div class="actions">
+  <button class="btn" (click)="downloadAsPDF()" >Download as PDF</button>
+</div>
+</body> -->
+
+
+
+<body>
+ <!-- Center Container -->
+<div class="id-card-wrapper" id="idCard">
+  <div *ngIf="leaderData; else notFound">
+  <div class="id-card">
+    <!-- Top Header -->
+   <!-- Top Header -->
+<!-- <div class="id-header">
+ <img src="assets/image/logo.png" alt="Logo" class="logo">
+  <h2 class="title">जयहिंद सेना</h2>
+</div> -->
+
+    <!-- Photo -->
+    <div class="photo-container">
+      <img [src]="'data:image/jpeg;base64,' + leaderData.photo"
+          alt="{{ leaderData.fullname }}" alt="Photo" class="photo">
+    </div>
+
+    <!-- Details -->
+    <div class="id-details">
+      <h3 class="name">{{leaderData.fullname}}</h3>
+      <h4 class="designation"> {{leaderData.role }}</h4>
+      <p><strong>ID NUMBER:</strong><br> {{leaderData.memberId}}</p>
+      <p><strong>PHONE:</strong><br> +91 {{leaderData.mobile}}</p>
+      <p><strong>EMAIL:</strong><br> {{leaderData.email}}</p>
+      <p><strong>ADDRESS:</strong><br> {{leaderData.address}}</p>
+    </div>
+
+    <!-- Footer -->
+    <!-- <div class="id-footer">
+      www.jayhindsena.org
+    </div> -->
+  </div>
+</div>
+</div>
+
+    <ng-template #notFound>
+  <p>Leader not found!</p>
+</ng-template>
+<!-- Download Buttons -->
+  <div class="actions">
+  <button class="btn" (click)="downloadAsPDF()" >Download as PDF</button>
+</div>
+</body>

@@ -1,0 +1,407 @@
+<nav #navbar class="navbar navbar-expand-lg shadow-sm py-2 sticky-top" [ngClass]="{ 'scrolled': isScrolled }">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
+      <!-- <img src="assets/Logo.jpeg" height="40" /> -->
+      <img src="assets/image/logo.png" alt="Logo" class="custom-logo" />
+      <span class="fw-bold text-uppercase small">
+        {{ selectedLang === 'en' ? 'JAY HIND SENA' : 'जय हिंद सेना' }}
+      </span>
+    </a>
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Nav Links + Search + Icons -->
+    <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+      <ul class="navbar-nav align-items-center mb-2 mb-lg-0 me-3">
+        <li class="nav-item">
+          <a class="nav-link text-danger fw-bold" [class.active]="activeSection === 'home'" [routerLink]="['/']">
+            {{ selectedLang === 'en' ? 'Home' : 'मुख्यपृष्ठ' }}
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+            [routerLink]="['/']"
+            [ngClass]="{ 'active': activeSection === 'about' || activeSection === 'leadership' || activeSection === 'join-member' || activeSection === 'news-press' }">
+            {{ selectedLang === 'en' ? 'About Us' : 'आमच्याबद्दल' }}
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" [class.active]="activeSection === 'about'" href="#about" [routerLink]="['/']">
+                {{ selectedLang === 'en' ? 'Our Journey' : 'आपली वाटचाल' }}
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" [class.active]="activeSection === 'leadership'" href="#leadership"
+                [routerLink]="['/']">
+                {{ selectedLang === 'en' ? 'Leadership' : 'नेतृत्व' }}
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" [class.active]="activeSection === 'join-member'" href="#join-member"
+                [routerLink]="['/']">
+                {{ selectedLang === 'en' ? 'Join as Member' : 'सदस्य म्हणून सहभागी व्हा' }}
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" [class.active]="activeSection === 'news-press'" href="#news-press"
+                [routerLink]="['/']">
+                {{ selectedLang === 'en' ? 'News & Press' : 'बातम्या आणि प्रसारमाध्यमे' }}
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="activeSection === 'gallery'" href="#gallery" [routerLink]="['/']">
+            {{ selectedLang === 'en' ? 'Gallery' : 'गॅलरी' }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [class.active]="activeSection === 'contact'" href="#contact" [routerLink]="['/']">
+            {{ selectedLang === 'en' ? 'Contact Us' : 'संपर्क करा' }}
+          </a>
+        </li>
+      </ul>
+      <!-- Social Icons and Button -->
+      <div class="d-flex align-items-center gap-3">
+        <a href="https://www.facebook.com/chandan.chavan3" target="_blank"><i
+            class="fab fa-facebook text-dark"></i></a>
+        <a href="https://x.com/i/flow/login" target="_blank"><i class="fab fa-twitter text-dark"></i></a>
+        <a href="https://www.youtube.com/watch?v=LZq0KZFAfmE" target="_blank"><i
+            class="fab fa-youtube text-dark"></i></a>
+        <a href="https://www.instagram.com/chandan_chavan3/" target="_blank"><i
+            class="fab fa-instagram text-dark"></i></a>
+
+        <button class="btn btn-primary btn-sm fw-semibold" [routerLink]="['/donation']">
+          {{ selectedLang === 'en' ? 'Make A Donation' : 'देणगी द्या' }}
+        </button>
+        <button (click)="toggleLanguage()" class="btn btn-outline-secondary btn-sm ms-2">
+          {{ selectedLang === 'en' ? 'मराठी' : 'English' }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+
+<section class="member-section py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold  mb-4">
+      {{ selectedLang === 'en' ? 'BECOME A MEMBER OR LEADER' : 'सदस्य बना' }}
+    </h2>
+    <p class=" mb-5">
+      {{ selectedLang === 'en' ? 'Choose your membership plan and support our movement.' : 'आपली सदस्यता योजना निवडा आणि
+      आमच्या चळवळीला पाठिंबा द्या.' }}
+    </p>
+
+    <div class="row justify-content-center g-4">
+
+      <!-- Member Card -->
+      <div class="col-md-4">
+        <div class="card shadow-lg border-0 h-100">
+          <div class="card-body d-flex flex-column">
+            <h4 class="fw-bold text-primary">
+              {{ selectedLang === 'en' ? 'Member' : 'साजिओ' }}
+            </h4>
+            <h2 class="fw-bold my-3">₹100</h2>
+            <p class="text-muted flex-grow-1">
+              {{ selectedLang === 'en' ?
+              'Join as a supporter and be part of our mission for change.' :
+              'समर्थक म्हणून सामील व्हा आणि बदलाच्या आमच्या मोहिमेचा भाग बना.' }}
+            </p>
+            <button class="btn btn-primary fw-bold mt-auto" type="button" data-bs-toggle="modal"
+              data-bs-target="#exampleModal2"  (click)="openForm('member')">
+              {{ selectedLang === 'en' ? 'Join as Member' : 'साजिओ म्हणून सामील व्हा' }}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Leader Card -->
+      <div class="col-md-4">
+        <div class="card shadow-lg border-0 h-100">
+          <div class="card-body d-flex flex-column">
+            <h4 class="fw-bold text-orange">
+              {{ selectedLang === 'en' ? 'Leader' : 'निरजिओ' }}
+            </h4>
+            <h2 class="fw-bold my-3">₹1000</h2>
+            <p class="text-muted flex-grow-1">
+              {{ selectedLang === 'en' ?
+              'Take leadership in building a stronger political movement.' :
+              'एक मजबूत राजकीय चळवळ निर्माण करण्यात निरजिओ घ्या.' }}
+            </p>
+            <button class="btn btn-orange fw-bold mt-auto text-white" type="button" data-bs-toggle="modal"
+              data-bs-target="#exampleModal" (click)="openForm('leader')">
+              {{ selectedLang === 'en' ? 'Join as Leader' : 'निरजिओ म्हणून सामील व्हा' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Contact Us Modal -->
+<!-- Leader Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-3 shadow">
+      <div class="modal-header">
+        <h5 class="modal-title" id="leaderModalLabel">Become a Leader</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <form [formGroup]="memberForm" (ngSubmit)="onSubmit()" class="container">
+          <div class="row g-3">
+
+            <!-- Full Name -->
+            <div class="col-md-6">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" formControlName="fullName" />
+              <small class="text-danger"
+                *ngIf="memberForm.get('fullName')?.touched && memberForm.get('fullName')?.invalid">
+                Full name is required
+              </small>
+            </div>
+
+            <!-- Mobile -->
+            <div class="col-md-6">
+              <label class="form-label">Mobile</label>
+              <input type="text" class="form-control" formControlName="mobile" maxlength="10" inputmode="numeric"
+                pattern="[0-9]*" />
+              <small class="text-danger" *ngIf="memberForm.get('mobile')?.touched && memberForm.get('mobile')?.invalid">
+                Enter valid 10-digit mobile number
+              </small>
+            </div>
+
+            <!-- Email -->
+            <div class="col-md-6">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" formControlName="email" />
+              <small class="text-danger" *ngIf="memberForm.get('email')?.touched && memberForm.get('email')?.invalid">
+                Enter a valid email
+              </small>
+            </div>
+
+            <!-- Photo -->
+            <div class="col-md-6">
+              <label class="form-label">Photo  <small class="text-muted">(Image must be less than 200 KB)</small></label>
+              <input type="file" class="form-control" (change)="onFileSelected($event)" accept=".jpeg,.png,.jpg" />
+              <small class="text-danger"
+                *ngIf="memberForm.get('photo')?.touched && memberForm.get('photo')?.hasError('required')">
+                Image is required
+              </small>
+              <small class="text-danger" *ngIf="memberForm.get('photo')?.hasError('fileSize')">
+                Image must be less than 200 KB
+              </small>
+            </div>
+
+            <!-- Address -->
+            <div class="col-12">
+              <label class="form-label">Address</label>
+              <textarea rows="2" class="form-control" maxlength="20" formControlName="address"></textarea>
+              <small class="text-danger"
+                *ngIf="memberForm.get('address')?.touched && memberForm.get('address')?.invalid">
+                Address is required
+              </small>
+            </div>
+
+            <!-- Confirm Age -->
+            <div class="col-12">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" formControlName="confirmAge" />
+                <label class="form-check-label">I confirm I am 18+ years old</label>
+              </div>
+              <small class="text-danger"
+                *ngIf="memberForm.get('confirmAge')?.touched && memberForm.get('confirmAge')?.invalid">
+                You must confirm your age
+              </small>
+            </div>
+
+            <!-- Hidden fields -->
+            <input type="hidden" formControlName="amount" [value]="1000" />
+            <input type="hidden" formControlName="role" [value]="'leader'" />
+
+            <!-- Submit -->
+            <div class="col-12 text-end">
+              <button type="submit" class="btn btn-success px-4" [disabled]="memberForm.invalid"
+                data-bs-dismiss="modal">
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- member Modal for Member -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-3 shadow">
+      <div class="modal-header">
+        <h5 class="modal-title" id="leaderModalLabel">Become a Member</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="memberForm" (ngSubmit)="onSubmit()" class="container">
+          <div class="row g-3">
+
+            <!-- Full Name -->
+            <div class="col-md-6">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control" formControlName="fullName" />
+              <small class="text-danger"
+                *ngIf="memberForm.get('fullName')?.touched && memberForm.get('fullName')?.invalid">
+                Full name is required
+              </small>
+            </div>
+
+            <!-- Mobile -->
+            <div class="col-md-6">
+              <label class="form-label">Mobile</label>
+              <input type="text" class="form-control" formControlName="mobile" maxlength="10" inputmode="numeric"
+                pattern="[0-9]*" />
+              <small class="text-danger" *ngIf="memberForm.get('mobile')?.touched && memberForm.get('mobile')?.invalid">
+                Enter valid 10-digit mobile number
+              </small>
+            </div>
+
+            <!-- Email -->
+            <div class="col-md-6">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" formControlName="email" />
+              <small class="text-danger" *ngIf="memberForm.get('email')?.touched && memberForm.get('email')?.invalid">
+                Enter valid email
+              </small>
+            </div>
+
+            <!-- Photo -->
+            <div class="col-md-6">
+              <label class="form-label">Photo  <small class="text-muted">(Image must be less than 200 KB)</small></label>
+              <input type="file" class="form-control" (change)="onFileSelected($event)" accept=".jpeg,.png,.jpg" />
+              <small class="text-danger"
+                *ngIf="memberForm.get('photo')?.touched && memberForm.get('photo')?.hasError('required')">
+                Image is required
+              </small>
+              <small class="text-danger" *ngIf="memberForm.get('photo')?.hasError('fileSize')">
+                Image must be less than 200 KB
+              </small>
+            </div>
+
+            <!-- Address -->
+            <div class="col-12">
+              <label class="form-label">Address</label>
+              <textarea rows="2" class="form-control" maxlength="20" formControlName="address"></textarea>
+              <small class="text-danger"
+                *ngIf="memberForm.get('address')?.touched && memberForm.get('address')?.invalid">
+                Address is required
+              </small>
+            </div>
+
+            <!-- Confirm Age -->
+            <div class="col-12">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" formControlName="confirmAge" />
+                <label class="form-check-label">I confirm I am 18+ years old</label>
+              </div>
+              <small class="text-danger"
+                *ngIf="memberForm.get('confirmAge')?.touched && memberForm.get('confirmAge')?.invalid">
+                You must confirm your age
+              </small>
+            </div>
+
+            <!-- Hidden Fields -->
+             <input type="hidden" formControlName="amount" [value]="10" />
+            <input type="hidden" formControlName="role" [value]="'member'" />
+
+            <!-- Submit -->
+            <div class="col-12 text-end">
+              <button type="submit" class="btn btn-success px-4" [disabled]="memberForm.invalid"
+                data-bs-dismiss="modal">
+                Submit
+              </button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+
+      <!-- Left Section -->
+      <div class="footer-left">
+        <h2 class="logo">
+          {{ selectedLang === 'en' ? 'The POLITICN' : 'द पॉलिटिशियन' }}
+        </h2>
+        <p>
+          {{ selectedLang === 'en'
+          ? 'Jay Hind Sena is a movement working for the upliftment of the common man and the national interest. Become
+          a part of this journey and contribute to the making of New India.'
+          : 'जय हिंद सेना हा एक आंदोलन आहे जे सामान्य माणसाच्या उन्नतीसाठी आणि राष्ट्रीय हितासाठी कार्य करते. या
+          प्रवासाचा भाग व्हा आणि नव्या भारताच्या निर्मितीत योगदान द्या.'
+          }}
+        </p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/chandan.chavan3" target="_blank"><i
+              class="fab fa-facebook text-white"></i></a>
+          <a href="https://x.com/i/flow/login" target="_blank"><i class="fab fa-twitter text-white"></i></a>
+          <a href="https://www.youtube.com/watch?v=LZq0KZFAfmE" target="_blank"><i
+              class="fab fa-youtube text-white"></i></a>
+          <a href="https://www.instagram.com/chandan_chavan3/" target="_blank"><i
+              class="fab fa-instagram text-white"></i></a>
+        </div>
+      </div>
+
+      <!-- Center Section -->
+      <div class="footer-center">
+        <h3>{{ selectedLang === 'en' ? 'SUPPORTS' : 'समर्थन' }}</h3>
+        <div class="supports">
+          <ul>
+            <li>{{ selectedLang === 'en' ? 'Rural Support' : 'ग्रामीण समर्थन' }}</li>
+            <li>{{ selectedLang === 'en' ? 'Gunthewari Paperwork Support' : 'गुंठेवारी कागदपत्र सहाय्य' }}</li>
+            <li>{{ selectedLang === 'en' ? 'Political Awareness' : 'राजकीय जाणीव' }}</li>
+          </ul>
+          <ul>
+            <li>{{ selectedLang === 'en' ? 'Skill Development' : 'कौशल्य विकास' }}</li>
+            <li>{{ selectedLang === 'en' ? 'Democracy' : 'लोकशाही' }}</li>
+            <li>{{ selectedLang === 'en' ? 'Leadership' : 'नेतृत्व' }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Section -->
+      <div class="footer-right"  href="https://www.instagram.com/chandan_chavan3/" target="_blank">
+        <h3>INSTAGRAM</h3>
+        <div class="instagram-images">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+          <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>Copyright © 2025. All Right Reserved</p>
+    </div>
+  </div>
+</footer>

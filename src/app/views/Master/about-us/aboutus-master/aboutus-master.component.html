@@ -1,0 +1,71 @@
+<div class="container mt-4">
+    <div class="row align-items-center mb-3">
+  <div class="col-12 col-md-8">
+    <h5 class="fw-bold">{{ formTitle }}</h5>
+  </div>
+  <div class="col-12 col-md-4 d-flex justify-content-md-end mt-2 mt-md-0">
+    <form class="d-flex align-items-center flex-wrap">
+      <!-- <div class="input-group me-2">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search Records"
+          [(ngModel)]="searchText"
+          name="search"
+          (keyup)="keyup()"
+        />
+        <button class="btn btn-primary" type="button" (click)="search(true)">
+          <i class="bi bi-search"></i>
+        </button>
+      </div> -->
+      <div>
+        <button type="button" class="btn btn-primary" (click)="add()">
+          <i class="bi bi-plus"></i> Add New Picture 
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <!-- <h4 class="mb-3">Home Master List</h4> -->
+  <table class="table table-bordered table-hover">
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Action</th>
+        <th scope="col">Description</th>
+        <th scope="col">Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of homeList">
+        <td>
+          <button class="btn btn-sm btn-primary me-1" (click)="edit(item)">Edit</button>
+          <button class="btn btn-sm btn-danger" (click)="delete(item)">Delete</button>
+        </td>
+        <td>{{ item.description || '-' }}</td>
+        <td>
+          <img *ngIf="item.imageUrl" [src]="item.imageUrl" alt="Image" width="80" class="img-thumbnail" />
+          <span *ngIf="!item.imageUrl">-</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div
+  class="offcanvas offcanvas-end"
+  tabindex="-1"
+  [class.show]="drawervisible"
+  [style.visibility]="drawervisible ? 'visible' : 'hidden'"
+  style="width: 370px;"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">{{ drawerTitle }}</h5>
+    <button type="button" class="btn-close" (click)="drawerClose()"></button>
+  </div>
+  <div class="offcanvas-body p-2">
+    <app-aboutus-drawer
+      [drawerClose]="closeCallback"
+      [drawerVisible]="drawervisible"
+    ></app-aboutus-drawer>
+  </div>
+</div>

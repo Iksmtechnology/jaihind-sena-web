@@ -1,0 +1,196 @@
+<div class="container mt-4 mb-4">
+  <div class="card shadow p-4">
+    <h4 class="mb-3">Add Leader/Members </h4>
+
+    <form [formGroup]="galleryForm" (ngSubmit)="onSubmit()">
+
+      <!-- Full Name + Title -->
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-control" formControlName="fullname" placeholder="Enter name" />
+          <small class="text-danger"
+            *ngIf="galleryForm.get('fullname')?.touched && galleryForm.get('fullname')?.invalid">
+            Full name is required
+          </small>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Title</label>
+          <input type="text" class="form-control" formControlName="title" placeholder="Enter title" />
+          <small class="text-danger" *ngIf="galleryForm.get('title')?.touched && galleryForm.get('title')?.invalid">
+            Title is required
+          </small>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" class="form-control" formControlName="email" placeholder="Enter email" />
+          <small class="text-danger" *ngIf="galleryForm.get('email')?.touched && galleryForm.get('email')?.invalid">
+            Email is required
+          </small>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Contact</label>
+          <input type="text" class="form-control" formControlName="contact" placeholder="Enter 10-digit contact number"
+            maxlength="10" inputmode="numeric" pattern="[0-9]*" />
+
+          <small class="text-danger"
+            *ngIf="galleryForm.get('contact')?.touched && galleryForm.get('contact')?.hasError('required')">
+            Contact is required
+          </small>
+          <small class="text-danger"
+            *ngIf="galleryForm.get('contact')?.touched && galleryForm.get('contact')?.hasError('pattern')">
+            Contact must be exactly 10 digits
+          </small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Image</label>
+          <input type="file" class="form-control" (change)="onFileSelected($event)" accept=".jpeg,.png,.jpg" />
+          <small class="text-danger"
+            *ngIf="galleryForm.get('image_url')?.touched && galleryForm.get('image_url')?.hasError('required')">
+            Image is required
+          </small>
+          <small class="text-danger" *ngIf="galleryForm.get('image_url')?.hasError('fileSize')">
+            Image must be less than 200 KB
+          </small>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Facebook</label>
+          <input type="url" class="form-control" formControlName="facebook"
+            placeholder="https://facebook.com/yourprofile" />
+          <small class="text-danger"
+            *ngIf="galleryForm.get('facebook')?.invalid && galleryForm.get('facebook')?.touched">
+            Please enter a valid Facebook URL
+          </small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Instagram</label>
+          <input type="url" class="form-control" formControlName="instagram"
+            placeholder="https://instagram.com/yourprofile" />
+          <small class="text-danger"
+            *ngIf="galleryForm.get('instagram')?.invalid && galleryForm.get('instagram')?.touched">
+            Please enter a valid Instagram URL
+          </small>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Twitter</label>
+          <input type="url" class="form-control" formControlName="twitter"
+            placeholder="https://twitter.com/yourprofile" />
+          <small class="text-danger" *ngIf="galleryForm.get('twitter')?.invalid && galleryForm.get('twitter')?.touched">
+            Please enter a valid Twitter URL
+          </small>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">YouTube</label>
+          <input type="url" class="form-control" formControlName="youtube"
+            placeholder="https://youtube.com/yourchannel" />
+          <small class="text-danger" *ngIf="galleryForm.get('youtube')?.invalid && galleryForm.get('youtube')?.touched">
+            Please enter a valid YouTube URL
+          </small>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Role</label>
+          <select class="form-select" formControlName="role">
+            <option value="">-- Select Role --</option>
+            <option value="Leader">Leader</option>
+            <option value="Member">Member</option>
+          </select>
+          <small class="text-danger" *ngIf="galleryForm.get('role')?.touched && galleryForm.get('role')?.invalid">
+            Role is required
+          </small>
+        </div>
+
+      </div>
+      <!-- Description (Full Width at Last) -->
+      <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" formControlName="description" placeholder="Enter description"
+          rows="4"></textarea>
+        <small class="text-danger"
+          *ngIf="galleryForm.get('description')?.touched && galleryForm.get('description')?.invalid">
+          Description is required
+        </small>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+  </div>
+</div>
+
+
+<!-- <div *ngFor="let item of getList">
+  <p>{{ item.title }}</p>
+  <img [src]="'data:image/png;base64,' + item.image_url" alt="Uploaded Image" width="200" height="200">
+</div> -->
+
+<div class="container mt-4">
+  <h3 class="mb-3 fw-bold">Leaders/Members Data</h3>
+  <div class="table-responsive mt-4" style="overflow-x: auto;">
+    <table class="table table-bordered table-striped text-center align-middle">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Contact</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Image</th>
+          <th>Facebook</th>
+          <th>Instagram</th>
+          <th>Twitter</th>
+          <th>Youtube</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leader of getList | paginate: { itemsPerPage: 5, currentPage: p }">
+          <td>{{ leader.id }}</td>
+          <td>{{ leader.fullname }}</td>
+          <td>{{ leader.email || 'N/A' }}</td>
+          <td>{{ leader.contact }}</td>
+          <td>{{ leader.title }}</td>
+          <td>{{ leader.description | slice:0:50 }}{{ leader.description.length > 50 ? '...' : '' }}</td>
+          <td>
+            <img *ngIf="leader.image_url" [src]="'data:image/jpeg;base64,' + leader.image_url" alt="Image" width="80"
+              class="rounded" />
+          </td>
+          <td><a *ngIf="leader.facebook" [href]="leader.facebook" target="_blank">Link</a></td>
+          <td><a *ngIf="leader.instagram" [href]="leader.instagram" target="_blank">Link</a></td>
+          <td><a *ngIf="leader.twitter" [href]="leader.twitter" target="_blank">Link</a></td>
+          <td><a *ngIf="leader.youtube" [href]="leader.youtube" target="_blank">Link</a></td>
+          <td>{{ leader.role || '--' }}</td>
+          <td>
+            <button class="btn btn-sm btn-primary me-2" (click)="onEdit(leader)">
+              <i class="bi bi-pencil"></i>
+            </button>
+
+            <!-- Delete -->
+            <button class="btn btn-sm btn-danger" (click)="onDelete(leader.id)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pagination Controls -->
+    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+  </div>
+</div>

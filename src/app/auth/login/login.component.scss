@@ -1,0 +1,32 @@
+.login-wrapper {
+  height: 85vh;
+  /* background: linear-gradient(to bottom right, #6dd5fa, #2980b9); */
+}
+
+.login-card {
+  background: #c3c3c3;
+  padding: 40px 30px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 350px;
+}
+
+.login-btn {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  font-weight: 600;
+  border: none;
+}
+
+.login-btn:hover {
+  opacity: 0.95;
+}
+
+.input-group-text {
+  border-right: none;
+}
+
+.form-control {
+  border-left: none;
+  box-shadow: none;
+}

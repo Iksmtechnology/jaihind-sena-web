@@ -1,0 +1,161 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+// Import styles with default layout.
+@use "@coreui/coreui/scss/coreui" as * with (
+  $enable-deprecation-messages: false
+);
+
+// Import Chart.js custom tooltips styles
+@use "@coreui/chartjs/scss/coreui-chartjs";
+
+// Custom styles for this theme
+@use "theme";
+
+// Some temp fixes
+//@use "fixes";
+
+// If you want to add custom CSS you can put it here.
+@use "custom";
+
+// Examples
+// We use those styles to show code examples, you should remove them in your application.
+@use "examples";
+
+
+/* ========== LIGHT MODE ========== */
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.navbar.light-mode {
+  background-color: #f8f9fa !important;
+}
+
+.navbar.light-mode .nav-link,
+.navbar.light-mode .navbar-brand {
+  color: #000 !important;
+}
+
+/* ========== DARK MODE ========== */
+/* Dark mode global styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+/* Fix for container text */
+body.dark-mode .container,
+body.dark-mode p,
+body.dark-mode .text-muted,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #f1f1f1 !important;
+}
+
+/* Optional fix for links */
+body.dark-mode a {
+  color: #FF7052;
+}
+
+
+.navbar.dark-mode {
+  background-color: #1f1f1f !important;
+}
+
+.navbar.dark-mode .nav-link,
+.navbar.dark-mode .navbar-brand {
+  color: #f1f1f1 !important;
+}
+
+.navbar.dark-mode .nav-link:hover,
+.navbar.dark-mode .nav-link.active {
+  color: #FF7052 !important;
+}
+
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode p,
+body.dark-mode h6 {
+  color: #ffffff;
+}
+/* Contact card background in light mode */
+body.light-mode .contact-card {
+  background-color: #ffffff;
+  color: #000;
+}
+
+/* Contact card background in dark mode */
+body.dark-mode .contact-card {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+  border: 1px solid #333;
+}
+
+/* Form field override for dark mode */
+body.dark-mode .form-control {
+  background-color: #2a2a2a;
+  color: #f1f1f1;
+  border-color: #444;
+}
+
+body.dark-mode .form-control::placeholder {
+  color: #aaa;
+}
+
+/* Fix checkboxes and labels in dark mode */
+body.dark-mode .form-check-label {
+  color: #f1f1f1;
+}
+
+body.dark-mode .form-check-input {
+  background-color: #333;
+  border-color: #666;
+}
+/* Light Mode - Default */
+body.light-mode .clients-section {
+  background-color: #ffffff;
+  color: #000;
+}
+
+body.light-mode .clients-section .client-card {
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+}
+
+/* Dark Mode */
+body.dark-mode .clients-section {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+body.dark-mode .clients-section .client-card {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+}
+
+/* Ensure images don't blend into dark backgrounds */
+body.dark-mode .client-card img {
+  filter: brightness(1.1) contrast(1.1);
+  background-color: #fff; /* optional white bg behind image */
+  padding: 5px;
+  border-radius: 6px;
+}
+
+
+body {
+  font-family: 'Anek Devanagari', sans-serif;
+}
+
+h1, h2 {
+  font-family: 'Anek Devanagari', serif;
+}

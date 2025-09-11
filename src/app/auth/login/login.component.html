@@ -1,0 +1,43 @@
+<div class="login-wrapper d-flex justify-content-center align-items-center">
+  <div class="login-card shadow">
+    <h4 class="text-center mb-4 fw-bold">Login</h4>
+    <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group mb-3">
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control border-start-0"
+           formControlName="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="form-group mb-4">
+        <div class="input-group">
+          <input
+            type="password"
+            class="form-control border-start-0"
+            formControlName="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+      </div>
+
+      <button
+        class="btn login-btn w-100 mb-3"
+        type="submit"
+        [disabled]="loginForm.invalid"
+      >
+        Login
+      </button>
+
+      <p class="text-center small mb-0">
+        Don’t have an account?
+        <a href="#" class="text-primary">Sign Up</a>
+      </p>
+    </form>
+  </div>
+</div>

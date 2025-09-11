@@ -1,0 +1,82 @@
+.nav-link {
+  cursor: pointer;
+}
+
+nav.navbar {
+  position: sticky !important;   // or fixed
+  top: 0;
+  z-index: 1050;
+  transition: none !important;
+  transform: none !important;
+  animation: none !important;
+  backface-visibility: hidden;
+  will-change: auto;
+}
+
+
+nav.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+}
+nav.scrolled {
+  background-color: #fff;
+  transition: background-color 0.3s;
+}
+/* ------------------- LIGHT MODE ------------------- */
+body.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.navbar.light-mode {
+  background-color: #f8f9fa !important;
+  color: #000000 !important;
+}
+
+.navbar.light-mode .nav-link {
+  color: #000000 !important;
+}
+
+/* ------------------- DARK MODE ------------------- */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+.navbar.dark-mode {
+  background-color: #1f1f1f !important;
+  color: #ffffff !important;
+}
+
+.navbar.dark-mode .nav-link {
+  color: #ffffff !important;
+}
+
+.navbar.dark-mode .navbar-brand,
+.navbar.dark-mode .nav-link.active,
+.navbar.dark-mode .nav-link:hover {
+  color:  #FF7052 !important; /* Highlight text on hover/active */
+}
+
+/* Optional: Override links, headings, etc. */
+body.dark-mode a {
+  color:  #FF7052;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #ffffff;
+}
+
+
+.custom-logo {
+  width: 80px;
+  height: 65px;
+  object-fit: contain; /* Optional: keeps image from stretching */
+}

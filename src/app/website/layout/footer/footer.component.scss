@@ -1,0 +1,82 @@
+
+/* footer */
+.footer {
+  background-color: #2d2d2d;
+  color: #fff;
+  padding: 40px 0;
+  font-family: Arial, sans-serif;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  flex: 1;
+  margin: 15px;
+}
+
+.logo span {
+  color: white;
+  font-weight: bold;
+}
+
+.footer-left p {
+  margin: 20px 0;
+}
+
+.social-icons i {
+  margin-right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.footer-center h3,
+.footer-right h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.supports {
+  display: flex;
+  gap: 30px;
+}
+
+.supports ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.supports li {
+  margin: 5px 0;
+}
+
+.instagram-image {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.instagram-image img {
+  width: 100%;
+  height: auto;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #444;
+  padding-top: 15px;
+  margin-top: 30px;
+  font-size: 14px;
+}

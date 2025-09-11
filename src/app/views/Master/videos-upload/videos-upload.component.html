@@ -1,0 +1,88 @@
+<div class="container my-4">
+  <div class="card shadow p-4">
+    <h4 class="mb-3">Upload Video</h4>
+
+    <form [formGroup]="videoForm" (ngSubmit)="onSubmit()">
+      <!-- Title -->
+      <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" formControlName="title" class="form-control" placeholder="Enter video title" />
+        <small class="text-danger" *ngIf="videoForm.get('title')?.touched && videoForm.get('title')?.invalid">
+          Title is required
+        </small>
+      </div>
+
+      <!-- Photo Upload -->
+      <div class="mb-3">
+        <label class="form-label">Thumbnail Photo <small class="text-muted">(Max 200 KB)</small></label>
+        <input type="file" class="form-control" (change)="onFileSelected($event)" accept=".jpeg,.png,.jpg" />
+
+        <small class="text-danger"
+          *ngIf="videoForm.get('thumbnail')?.touched && videoForm.get('thumbnail')?.hasError('required')">
+          Thumbnail photo is required
+        </small>
+        <small class="text-danger" *ngIf="videoForm.get('thumbnail')?.hasError('fileSize')">
+          Thumbnail must be less than 200 KB
+        </small>
+        <div *ngIf="previewImage" class="mt-3">
+          <img [src]="previewImage" class="img-fluid rounded shadow-sm" style="max-height: 200px;" />
+        </div>
+      </div>
+
+      <!-- Video Link -->
+      <div class="mb-3">
+        <label class="form-label">Video Link (YouTube / Vimeo)</label>
+        <input type="url" formControlName="video_link" class="form-control" placeholder="https://youtube.com/..." />
+        <small class="text-danger" *ngIf="videoForm.get('video_link')?.touched && videoForm.get('video_link')?.invalid">
+          Valid video link is required
+        </small>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn btn-primary" [disabled]="videoForm.invalid">
+        Upload Video
+      </button>
+    </form>
+  </div>
+</div>
+
+
+<div class="container mt-4">
+  <h3 class="mb-3 fw-bold">Leaders/Members Data</h3>
+  <div class="table-responsive mt-4" style="overflow-x: auto;">
+    <table class="table table-bordered table-striped text-center align-middle">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Image</th>
+          <th>Video Links</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leader of getVideoList | paginate: { itemsPerPage: 5, currentPage: p }">
+          <td>{{ leader.id }}</td>
+          <td>{{ leader.title }}</td>
+          <td>
+            <img *ngIf="leader.photo" [src]="'data:image/jpeg;base64,' + leader.photo" alt="Image" width="80"
+              class="rounded" />
+          </td>
+          <td>{{ leader.video_link }}</td>
+          <!-- <td><a *ngIf="leader.video_link" [href]="leader.video_link" target="_blank">Link</a></td> -->
+          <td>
+            <button class="btn btn-sm btn-primary me-2" (click)="onEdit(leader)">
+              <i class="bi bi-pencil"></i>
+            </button>
+            <!-- Delete -->
+            <button class="btn btn-sm btn-danger" (click)="onDelete(leader.id)">
+              <i class="bi bi-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pagination Controls -->
+    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+  </div>
+</div>

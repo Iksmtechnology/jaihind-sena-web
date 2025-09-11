@@ -1,0 +1,93 @@
+<nav #navbar class="navbar navbar-expand-lg shadow-sm py-2 sticky-top">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/">
+      <!-- <img src="assets/Logo.jpeg" height="40" /> -->
+      <img src="assets/image/logo.png" alt="Logo" class="custom-logo" />
+      <span class="fw-bold text-uppercase small">JAI HIND SENA</span>
+    </a>
+    <!-- Mobile Toggle Button -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Nav Links + Search + Icons -->
+    <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+      <ul class="navbar-nav align-items-center mb-2 mb-lg-0 me-3">
+        <li class="nav-item">
+          <a class="nav-link text-danger fw-bold" routerLink="/" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about" routerLinkActive="active">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/services" routerLinkActive="active">Leadership</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Join as Member</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">News & Press</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact Us</a>
+        </li>
+      </ul>
+      <!-- Social Icons and Button -->
+      <div class="d-flex align-items-center gap-3">
+        <a href="#"><i class="fab fa-facebook text-dark"></i></a>
+        <a href="#"><i class="fab fa-twitter text-dark"></i></a>
+        <a href="#"><i class="fab fa-youtube text-dark"></i></a>
+        <a href="#"><i class="fab fa-instagram text-dark"></i></a>
+
+        <button class="btn btn-primary btn-sm fw-semibold">Make A Donation</button>
+      </div>
+      <!-- <button (click)="toggleTheme()" class="btn btn-sm d-flex align-items-center px-3 py-2"
+        [ngClass]="isDarkMode ? 'btn-dark text-light' : 'btn-light text-dark'"
+        style="border-radius: 50px; border: 1px solid #ccc; transition: all 0.3s ease;">
+
+        <span class="me-2" [innerHTML]="isDarkMode ? '🌙' : '☀️'"></span>
+        <span>{{ isDarkMode ? 'Dark Mode' : 'Light Mode' }}</span>
+      </button> -->
+
+
+      <!-- dark-mode-toggle.component.html -->
+      <!-- <div class="d-flex align-items-center gap-2">
+                <c-header-nav class="ms-auto ms-md-0">
+                    <div class="nav-item py-1">
+                        <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
+                    </div>
+                    <ng-container *ngTemplateOutlet="themeDropdown" />
+                    <div class="nav-item py-1">
+                        <div class="vr h-100 mx-2 text-body text-opacity-75"></div>
+                    </div>
+                </c-header-nav>
+
+                <c-header-nav class="mx-0">
+
+                </c-header-nav>
+                <ng-template #themeDropdown>
+                    <c-dropdown alignment="end" variant="nav-item">
+                        <button [caret]="false" cDropdownToggle aria-label="Open theme picker">
+                            <svg cIcon [name]="icons()" size="lg"></svg>
+                        </button>
+                        <div cDropdownMenu>
+                            @for (mode of colorModes; track mode.name) {
+                            <button (click)="colorMode.set(mode.name)" [active]="colorMode()===mode.name" cDropdownItem
+                                class="d-flex align-items-center">
+                                <svg cIcon class="me-2" [name]="mode.icon" size="lg"></svg>
+                                {{ mode.text }}
+                            </button>
+                            }
+                        </div>
+                    </c-dropdown>
+                </ng-template>
+            </div> -->
+
+
+
+    </div>
+  </div>
+</nav>

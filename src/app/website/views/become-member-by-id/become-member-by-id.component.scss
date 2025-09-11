@@ -1,0 +1,195 @@
+// body {
+//   // background: url("../../../../assets/image/background-orange-image.jpg") no-repeat center center fixed;
+//   background-color: #ff7f22;
+//   background-size: cover;
+// }
+
+
+
+/* Wrapper to center the card */
+.id-card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  /* spacing around each card */
+  background: #f4f4f4;
+  /* optional */
+}
+
+// .id-card {
+//   width: 100%;
+//   max-width: 350px;   /* fix card width */
+//   background: #fff;
+//   border-radius: 10px;
+//   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+//   padding: 20px;
+// }
+
+/* ID Card */
+.id-card {
+  width: 300px;
+  background: url("../../../../assets/image/identity.png") no-repeat center center;
+  background-size: cover;
+  /* makes it stretch & cover fully */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  padding: 35px;
+  margin-top: 35px;
+  /* Orange glowing shadow */
+  box-shadow: 0 6px 20px rgba(255, 166, 0, 0.7);
+}
+
+
+
+/* Header */
+.id-header {
+  display: flex;
+  justify-content: center;
+  /* center both horizontally */
+  align-items: center;
+  /* center vertically */
+  gap: 10px;
+  /* space between logo & text */
+  padding: 10px;
+  background: #ff7f22;
+  /* optional header background */
+  color: white;
+  /* text color */
+}
+
+.id-header .logo {
+  height: 40px;
+}
+
+/* Photo */
+.photo-container {
+  margin-top: 100px;
+}
+
+.photo {
+  width: 120px;
+  height: 105px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+/* Details */
+.id-details {
+  padding: 15px;
+  text-align: left;
+}
+
+.id-details .name {
+  text-align: center;
+  margin: 0px 0 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.id-details .designation {
+  text-align: center;
+  color: red;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.id-details p {
+  font-size: 13px;
+  margin: 5px 0;
+}
+
+/* QR Code */
+.qr-container {
+  margin: 10px auto;
+}
+
+.qr {
+  width: 70px;
+  height: 70px;
+}
+
+
+.actions {
+  position: fixed;
+  bottom: 20px;
+  /* distance from bottom */
+  left: 50%;
+  /* move to center */
+  transform: translateX(-50%);
+  /* adjust for perfect centering */
+  z-index: 1000;
+  text-align: center;
+}
+
+.designation::first-letter {
+  text-transform: uppercase;    /* capitalize first letter */
+}
+
+
+/* For small screens (mobile/tablet) */
+@media (max-width: 768px) {
+  .actions {
+    bottom: 15px;
+    left: 50%;
+    /* center horizontally */
+    right: auto;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+}
+
+
+/* On big screens (desktop) - keep it on right side */
+@media (min-width: 769px) {
+  .actions {
+    right: 30px;
+    bottom: 30px;
+    transform: none;
+    left: auto;
+  }
+}
+
+.btn {
+  padding: 8px 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #0056b3;
+}
+
+/* Footer */
+.id-footer {
+  background: #ff7f22;
+  color: #fff;
+  font-size: 14px;
+  padding: 5px;
+}
+
+
+
+/* ---------- Mobile Specific Tweaks ---------- */
+@media (max-width: 480px) {
+  .id-header .title {
+    font-size: 16px;
+  }
+
+  .photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .id-details .name {
+    font-size: 15px;
+  }
+
+  .id-details .designation {
+    font-size: 12px;
+  }
+}
