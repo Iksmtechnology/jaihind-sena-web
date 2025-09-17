@@ -242,7 +242,7 @@ export class HomeComponent {
         ]
       },
       // image: "assets/image/leader-image-2002.jpg"
-     image: "assets/image/leader-image-1.jpeg",
+      image: "assets/image/leader-image-1.jpeg",
 
     },
     2003: {
@@ -734,84 +734,84 @@ export class HomeComponent {
     }
   };
 
- leaders = [
-  {
-    id: 1,
-    image: 'assets/image/leader-image-1.jpeg',
-    title: {
-      en: 'Shri. Chandan Dada Chavan',
-      mr: 'श्री. चंदनदादा चव्हाण'
-    },
-    subtitle: {
-      en: 'Party Chief.',
-      mr: 'पक्षप्रमुख .'
-    },
-    paragraphs: [
-      {
-        en: 'Land holders in "Gunthawari" do not require a new law to have their names added to the 7/12 extract – Shri Chandan Dada Chavan.',
-        mr: 'गुंठेवारी धारकांना ७/१२ वर नावे लागण्यासाठी नव्या कायद्याची गरज नाही – चंदनदादा चव्हाण.'
+  leaders = [
+    {
+      id: 1,
+      image: 'assets/image/leader-image-1.jpeg',
+      title: {
+        en: 'Shri. Chandan Dada Chavan',
+        mr: 'श्री. चंदनदादा चव्हाण'
       },
-      {
-        en: 'In Maharashtra’s political landscape, Shri Chandan Dada Chavan stands as a dedicated leader with a deep connection to the people.',
-        mr: 'महाराष्ट्राच्या राजकीय क्षेत्रात श्री. चंदनदादा चव्हाण हे जनतेशी घट्ट नातं ठेवणारे समर्पित नेते म्हणून उभे आहेत.'
-      }
-    ]
-  },
-  {
-    id: 2,
-    image: 'assets/image/chandandada-daughter.jpg',
-    title: {
-      en: 'Shri. Ranjit Chavan',
-      mr: 'श्री. रणजीत चव्हाण'
+      subtitle: {
+        en: 'Party Chief.',
+        mr: 'पक्षप्रमुख .'
+      },
+      paragraphs: [
+        {
+          en: 'Land holders in "Gunthawari" do not require a new law to have their names added to the 7/12 extract – Shri Chandan Dada Chavan.',
+          mr: 'गुंठेवारी धारकांना ७/१२ वर नावे लागण्यासाठी नव्या कायद्याची गरज नाही – चंदनदादा चव्हाण.'
+        },
+        {
+          en: 'In Maharashtra’s political landscape, Shri Chandan Dada Chavan stands as a dedicated leader with a deep connection to the people.',
+          mr: 'महाराष्ट्राच्या राजकीय क्षेत्रात श्री. चंदनदादा चव्हाण हे जनतेशी घट्ट नातं ठेवणारे समर्पित नेते म्हणून उभे आहेत.'
+        }
+      ]
     },
-    subtitle: {
-      en: 'Youth Leader',
-      mr: 'युवा प्रमुख'
+    {
+      id: 2,
+      image: 'assets/image/chandandada-daughter.jpg',
+      title: {
+        en: 'Shri. Ranjit Chavan',
+        mr: 'श्री. रणजीत चव्हाण'
+      },
+      subtitle: {
+        en: 'Youth Leader',
+        mr: 'युवा प्रमुख'
+      },
+      paragraphs: [
+        {
+          en: 'Ranjit Chavan represents the new generation of leadership with fresh ideas and a strong will to serve the people.',
+          mr: 'रणजीत चव्हाण हे जनतेची सेवा करण्याची तीव्र इच्छा आणि नवे विचार असलेले नवे पिढीतील नेते आहेत.'
+        }
+      ]
     },
-    paragraphs: [
-      {
-        en: 'Ranjit Chavan represents the new generation of leadership with fresh ideas and a strong will to serve the people.',
-        mr: 'रणजीत चव्हाण हे जनतेची सेवा करण्याची तीव्र इच्छा आणि नवे विचार असलेले नवे पिढीतील नेते आहेत.'
-      }
-    ]
-  },
-  {
-    id: 3,
-    image: 'assets/image/dr.abdullmnanshaikh.jpeg',
-    title: {
-      en: 'Dr.Abdul Mannan Shaikh',
-      mr: 'डॉ.अब्दुल मन्नान शेख'
+    {
+      id: 3,
+      image: 'assets/image/dr.abdullmnanshaikh.jpeg',
+      title: {
+        en: 'Dr.Abdul Mannan Shaikh',
+        mr: 'डॉ.अब्दुल मन्नान शेख'
+      },
+      subtitle: {
+        en: 'Key Leader & State Spokeperson',
+        mr: 'प्रमुख नेते / राज्य प्रवक्ते'
+      },
+      paragraphs: [
+        {
+          en: 'Dedicated to organizational growth and welfare initiatives.',
+          mr: 'संघटनाच्या वाढीसाठी आणि कल्याणकारी उपक्रमांसाठी समर्पित.'
+        }
+      ]
     },
-    subtitle: {
-      en: 'Key Leader & State Spokeperson',
-      mr: 'प्रमुख नेते / राज्य प्रवक्ते'
-    },
-    paragraphs: [
-      {
-        en: 'Dedicated to organizational growth and welfare initiatives.',
-        mr: 'संघटनाच्या वाढीसाठी आणि कल्याणकारी उपक्रमांसाठी समर्पित.'
-      }
-    ]
-  },
-  {
-    id: 4,
-    image: 'assets/image/Milind Inamdar.jpeg',
-    title: {
-      en: 'Milind Inamdar',
-      mr: 'मिलिंद इनामदार'
-    },
-    subtitle: {
-      en: 'Deputy Head of State (direct descendant of Veer Sidnak)',
-      mr: 'राज्य उपप्रमुख(वीर सिदनाक वंशज)'
-    },
-    paragraphs: [
-      {
-        en: 'Playing a vital role in strengthening the foundation of Jai Hind Sena.',
-        mr: 'जय हिंद सेनेची पायाभरणी मजबूत करण्यामध्ये महत्त्वपूर्ण भूमिका.'
-      }
-    ]
-  }
-];
+    {
+      id: 4,
+      image: 'assets/image/Milind Inamdar.jpeg',
+      title: {
+        en: 'Milind Inamdar',
+        mr: 'मिलिंद इनामदार'
+      },
+      subtitle: {
+        en: 'Deputy Head of State (direct descendant of Veer Sidnak)',
+        mr: 'राज्य उपप्रमुख(वीर सिदनाक वंशज)'
+      },
+      paragraphs: [
+        {
+          en: 'Playing a vital role in strengthening the foundation of Jai Hind Sena.',
+          mr: 'जय हिंद सेनेची पायाभरणी मजबूत करण्यामध्ये महत्त्वपूर्ण भूमिका.'
+        }
+      ]
+    }
+  ];
 
 
   tweets = [
@@ -1073,8 +1073,15 @@ export class HomeComponent {
   }
 
   activeSection = 'home';
+  isJoinVisible = false;
   onSectionChange(sectionId: any) {
     this.activeSection = sectionId;
+
+    if (sectionId === 'join-member') {
+      this.isJoinVisible = true;   // trigger animation when visible
+    } else {
+      this.isJoinVisible = false;  // ❓ reset if you want animation again
+    }
   }
 
   selectYear(year: number) {
@@ -1126,11 +1133,11 @@ export class HomeComponent {
   // }
 
   downloadPdf() {
-  const link = document.createElement('a');
-  link.href = 'assets/image/jay-hind-sena.pdf';
-  link.download = 'jay-hind-sena.pdf';
-  link.click();
-}
+    const link = document.createElement('a');
+    link.href = 'assets/image/jay-hind-sena.pdf';
+    link.download = 'jay-hind-sena.pdf';
+    link.click();
+  }
 
 
   @ViewChild('videoPlayer') videoPlayer!: ElementRef<HTMLVideoElement>;
@@ -1149,11 +1156,10 @@ export class HomeComponent {
   }
 
   isScrolled = false;
-
   @HostListener('window:scroll', [])
   onWindowScroll() {
     // Add scrolled class after 50px
-    this.isScrolled = window.scrollY > 20;
+    this.isScrolled = window.scrollY > 50;
   }
 
 }

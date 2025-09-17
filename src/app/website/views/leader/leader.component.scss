@@ -116,6 +116,12 @@ nav.scrolled {
 .supports {
   display: flex;
   gap: 30px;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+  color: #d9534f; /* optional: highlight on hover */
 }
 
 .supports ul {

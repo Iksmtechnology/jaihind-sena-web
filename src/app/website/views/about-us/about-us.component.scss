@@ -87,24 +87,30 @@ nav.scrolled {
 /* ✅ Mobile responsive */
 @media (max-width: 768px) {
   .hero-section {
-    min-height: 70vh; /* छोट्या screen साठी कमी उंची */
+    min-height: 70vh;
+    /* छोट्या screen साठी कमी उंची */
     margin-top: 0;
   }
 
   .hero-bg-blur img {
-    max-width: 95%;   /* image थोडा जास्त मोठा */
-    max-height: 80vh; /* उंची screen प्रमाणे */
-    padding: 10px;    /* थोडा gap */
+    max-width: 95%;
+    /* image थोडा जास्त मोठा */
+    max-height: 80vh;
+    /* उंची screen प्रमाणे */
+    padding: 10px;
+    /* थोडा gap */
   }
 }
 
 @media (max-width: 480px) {
   .hero-section {
-    min-height: 27vh; /* आणखी compact */
+    min-height: 27vh;
+    /* आणखी compact */
   }
 
   .hero-bg-blur img {
-    max-width: 100%;  /* ✅ small mobile वर full width */
+    max-width: 100%;
+    /* ✅ small mobile वर full width */
     max-height: 70vh;
     padding: 5px;
   }
@@ -174,6 +180,13 @@ nav.scrolled {
 .supports {
   display: flex;
   gap: 30px;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+  color: #d9534f;
+  /* optional: highlight on hover */
 }
 
 .supports ul {

@@ -1,4 +1,3 @@
-
 <nav #navbar class="navbar navbar-expand-lg shadow-sm py-2 sticky-top" [ngClass]="{ 'scrolled': isScrolled }">
   <div class="container">
     <!-- Logo -->
@@ -22,7 +21,8 @@
           </a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" [routerLink]="['/']"
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+            [routerLink]="['/']"
             [ngClass]="{ 'active': activeSection === 'about' || activeSection === 'leadership' || activeSection === 'join-member' || activeSection === 'news-press' }">
             {{ selectedLang === 'en' ? 'About Us' : 'आमच्याबद्दल' }}
           </a>
@@ -33,17 +33,20 @@
               </a>
             </li>
             <li>
-              <a class="dropdown-item" [class.active]="activeSection === 'leadership'" href="#leadership" [routerLink]="['/']">
+              <a class="dropdown-item" [class.active]="activeSection === 'leadership'" href="#leadership"
+                [routerLink]="['/']">
                 {{ selectedLang === 'en' ? 'Leadership' : 'नेतृत्व' }}
               </a>
             </li>
             <li>
-              <a class="dropdown-item" [class.active]="activeSection === 'join-member'" href="#join-member" [routerLink]="['/']">
+              <a class="dropdown-item" [class.active]="activeSection === 'join-member'" href="#join-member"
+                [routerLink]="['/']">
                 {{ selectedLang === 'en' ? 'Join as Member' : 'सदस्य म्हणून सहभागी व्हा' }}
               </a>
             </li>
             <li>
-              <a class="dropdown-item" [class.active]="activeSection === 'news-press'" href="#news-press" [routerLink]="['/']">
+              <a class="dropdown-item" [class.active]="activeSection === 'news-press'" href="#news-press"
+                [routerLink]="['/']">
                 {{ selectedLang === 'en' ? 'News & Press' : 'बातम्या आणि प्रसारमाध्यमे' }}
               </a>
             </li>
@@ -67,7 +70,7 @@
         <a href="#"><i class="fab fa-youtube text-dark"></i></a>
         <a href="#"><i class="fab fa-instagram text-dark"></i></a>
 
-         <button class="btn btn-primary btn-sm fw-semibold" [routerLink]="['/donation']">
+        <button class="btn btn-primary btn-sm fw-semibold" [routerLink]="['/donation']">
           {{ selectedLang === 'en' ? 'Make A Donation' : 'देणगी द्या' }}
         </button>
         <button (click)="toggleLanguage()" class="btn btn-outline-secondary btn-sm ms-2">
@@ -82,17 +85,20 @@
   <h2 class="fw-bold mb-4 text-center">Privacy Policy</h2>
 
   <p>
-    Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal data when you use our services.
+    Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal data
+    when you use our services.
   </p>
 
   <h5 class="mt-4">1. Information We Collect</h5>
   <p>
-    We may collect personal information such as your name, email, phone number, and payment details when you register or make a transaction.
+    We may collect personal information such as your name, email, phone number, and payment details when you register or
+    make a transaction.
   </p>
 
   <h5 class="mt-4">2. How We Use Information</h5>
   <p>
-    Your information will be used to provide services, process payments, improve user experience, and send important notifications.
+    Your information will be used to provide services, process payments, improve user experience, and send important
+    notifications.
   </p>
 
   <h5 class="mt-4">3. Data Security</h5>
@@ -102,18 +108,20 @@
 
   <h5 class="mt-4">4. Third-Party Sharing</h5>
   <p>
-    We do not sell or rent your personal information. However, we may share limited data with trusted third-party partners for payment processing or legal compliance.
+    We do not sell or rent your personal information. However, we may share limited data with trusted third-party
+    partners for payment processing or legal compliance.
   </p>
 
   <h5 class="mt-4">5. Changes to Policy</h5>
   <p>
-    We may update this Privacy Policy from time to time. Continued use of our services indicates your acceptance of these changes.
+    We may update this Privacy Policy from time to time. Continued use of our services indicates your acceptance of
+    these changes.
   </p>
 
   <h5 class="mt-4">6. Contact Us</h5>
   <p>
     For questions about this Privacy Policy, please contact us at
-    <a href="mailto:support&#64;example.com">support&#64;example.com</a>.
+    <a href="www.jayhindsena.org">www.jayhindsena.org</a>.
   </p>
 </section>
 
@@ -121,11 +129,10 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-content">
-
       <!-- Left Section -->
       <div class="footer-left">
         <h2 class="logo">
-          {{ selectedLang === 'en' ? 'The POLITICN' : 'द पॉलिटिशियन' }}
+          {{ selectedLang === 'en' ? 'Jay Hind Sena' : 'जय हिंद सेना' }}
         </h2>
         <p>
           {{ selectedLang === 'en'
@@ -151,20 +158,26 @@
         <h3>{{ selectedLang === 'en' ? 'SUPPORTS' : 'समर्थन' }}</h3>
         <div class="supports">
           <ul>
-            <li>{{ selectedLang === 'en' ? 'Rural Support' : 'ग्रामीण समर्थन' }}</li>
-            <li>{{ selectedLang === 'en' ? 'Gunthewari Paperwork Support' : 'गुंठेवारी कागदपत्र सहाय्य' }}</li>
-            <li>{{ selectedLang === 'en' ? 'Political Awareness' : 'राजकीय जाणीव' }}</li>
+            <li class="footer-link" [routerLink]="['/about-us']" >{{ selectedLang === 'en' ? 'Rural Support' : 'ग्रामीण समर्थन' }}</li>
+            <li class="footer-link" [routerLink]="['/about-us']" >{{ selectedLang === 'en' ? 'Gunthewari Paperwork Support' : 'गुंठेवारी कागदपत्र सहाय्य' }}</li>
+            <!-- <li class="footer-link" [routerLink]="['/about-us']" >{{ selectedLang === 'en' ? 'Political Awareness' : 'राजकीय जाणीव' }}</li> -->
+            <li class="footer-link" [routerLink]="['/terms-conditions']">
+              {{ selectedLang === 'en' ? 'Terms & Conditions' : 'नियम आणि अटी' }}
+            </li>
+            <li class="footer-link" [routerLink]="['/privacy-policy']">
+              {{ selectedLang === 'en' ? 'Privacy Policy' : 'गोपनीयता धोरण' }}
+            </li>
           </ul>
           <ul>
-            <li>{{ selectedLang === 'en' ? 'Skill Development' : 'कौशल्य विकास' }}</li>
-            <li>{{ selectedLang === 'en' ? 'Democracy' : 'लोकशाही' }}</li>
-            <li>{{ selectedLang === 'en' ? 'Leadership' : 'नेतृत्व' }}</li>
+            <li class="footer-link" [routerLink]="['/about-us']" >{{ selectedLang === 'en' ? 'Skill Development' : 'कौशल्य विकास' }}</li>
+            <li class="footer-link" [routerLink]="['/about-us']"  >{{ selectedLang === 'en' ? 'Democracy' : 'लोकशाही' }}</li>
+            <li class="footer-link" [routerLink]="['/about-us']"  >{{ selectedLang === 'en' ? 'Leadership' : 'नेतृत्व' }}</li>
           </ul>
         </div>
       </div>
 
       <!-- Right Section -->
-      <div class="footer-right"  href="https://www.instagram.com/chandan_chavan3/" target="_blank">
+      <!-- <div class="footer-right" href="https://www.instagram.com/chandan_chavan3/" target="_blank">
         <h3>INSTAGRAM</h3>
         <div class="instagram-images">
           <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
@@ -176,7 +189,7 @@
           <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
           <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
         </div>
-      </div>
+      </div> -->
 
     </div>
 
@@ -185,5 +198,3 @@
     </div>
   </div>
 </footer>
-
-

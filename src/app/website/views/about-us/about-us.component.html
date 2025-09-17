@@ -62,8 +62,7 @@
       </ul>
       <!-- Social Icons and Button -->
       <div class="d-flex align-items-center gap-3">
-        <a href="https://www.facebook.com/chandan.chavan3" target="_blank"><i
-            class="fab fa-facebook text-dark"></i></a>
+        <a href="https://www.facebook.com/chandan.chavan3" target="_blank"><i class="fab fa-facebook text-dark"></i></a>
         <a href="https://x.com/i/flow/login" target="_blank"><i class="fab fa-twitter text-dark"></i></a>
         <a href="https://www.youtube.com/watch?v=LZq0KZFAfmE" target="_blank"><i
             class="fab fa-youtube text-dark"></i></a>
@@ -96,11 +95,10 @@
 <footer class="footer">
   <div class="container">
     <div class="footer-content">
-
       <!-- Left Section -->
       <div class="footer-left">
         <h2 class="logo">
-          {{ selectedLang === 'en' ? 'The POLITICN' : 'द पॉलिटिशियन' }}
+          {{ selectedLang === 'en' ? 'Jay Hind Sena' : 'जय हिंद सेना' }}
         </h2>
         <p>
           {{ selectedLang === 'en'
@@ -126,20 +124,26 @@
         <h3>{{ selectedLang === 'en' ? 'SUPPORTS' : 'समर्थन' }}</h3>
         <div class="supports">
           <ul>
-            <li>{{ selectedLang === 'en' ? 'Rural Support' : 'ग्रामीण समर्थन' }}</li>
-            <li>{{ selectedLang === 'en' ? 'Gunthewari Paperwork Support' : 'गुंठेवारी कागदपत्र सहाय्य' }}</li>
-            <li>{{ selectedLang === 'en' ? 'Political Awareness' : 'राजकीय जाणीव' }}</li>
+            <li class="footer-link" [routerLink]="['/about-us']" >{{ selectedLang === 'en' ? 'Rural Support' : 'ग्रामीण समर्थन' }}</li>
+            <li class="footer-link" [routerLink]="['/about-us']" >{{ selectedLang === 'en' ? 'Gunthewari Paperwork Support' : 'गुंठेवारी कागदपत्र सहाय्य' }}</li>
+            <!-- <li class="footer-link" [routerLink]="['/about-us']" >{{ selectedLang === 'en' ? 'Political Awareness' : 'राजकीय जाणीव' }}</li> -->
+            <li class="footer-link" [routerLink]="['/terms-conditions']">
+              {{ selectedLang === 'en' ? 'Terms & Conditions' : 'नियम आणि अटी' }}
+            </li>
+            <li class="footer-link" [routerLink]="['/privacy-policy']">
+              {{ selectedLang === 'en' ? 'Privacy Policy' : 'गोपनीयता धोरण' }}
+            </li>
           </ul>
           <ul>
-            <li>{{ selectedLang === 'en' ? 'Skill Development' : 'कौशल्य विकास' }}</li>
-            <li>{{ selectedLang === 'en' ? 'Democracy' : 'लोकशाही' }}</li>
-            <li>{{ selectedLang === 'en' ? 'Leadership' : 'नेतृत्व' }}</li>
+            <li class="footer-link" [routerLink]="['/about-us']" >{{ selectedLang === 'en' ? 'Skill Development' : 'कौशल्य विकास' }}</li>
+            <li class="footer-link" [routerLink]="['/about-us']"  >{{ selectedLang === 'en' ? 'Democracy' : 'लोकशाही' }}</li>
+            <li class="footer-link" [routerLink]="['/about-us']"  >{{ selectedLang === 'en' ? 'Leadership' : 'नेतृत्व' }}</li>
           </ul>
         </div>
       </div>
 
       <!-- Right Section -->
-      <div class="footer-right"  href="https://www.instagram.com/chandan_chavan3/" target="_blank">
+      <!-- <div class="footer-right" href="https://www.instagram.com/chandan_chavan3/" target="_blank">
         <h3>INSTAGRAM</h3>
         <div class="instagram-images">
           <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
@@ -151,10 +155,8 @@
           <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
           <img src="assets/image/news-vedio-img/news-vedio-1-img.png" alt="img">
         </div>
-      </div>
-
+      </div> -->
     </div>
-
     <div class="footer-bottom">
       <p>Copyright © 2025. All Right Reserved</p>
     </div>

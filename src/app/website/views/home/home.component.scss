@@ -623,6 +623,17 @@ nav.scrolled {
   border-radius: 12px;
 }
 
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 0.8s ease-out;
+}
+
+.slide-in-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 
 
 
@@ -677,6 +688,13 @@ nav.scrolled {
 .supports {
   display: flex;
   gap: 30px;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+  color: #d9534f;
+  /* optional: highlight on hover */
 }
 
 .supports ul {

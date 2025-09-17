@@ -1,12 +1,16 @@
 /* nav-bar */
 .nav-link {
   cursor: pointer;
-};
+}
+
+;
 
 nav.navbar {
   position: sticky !important;
   top: 0;
-};
+}
+
+;
 
 nav.navbar {
   position: fixed;
@@ -18,8 +22,9 @@ nav.navbar {
 }
 
 nav.navbar.scrolled {
-  background-color: #fff; /* Solid color when scrolled */
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: #fff;
+  /* Solid color when scrolled */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -29,6 +34,7 @@ nav.navbar {
   width: 100%;
   z-index: 1050;
 }
+
 nav.scrolled {
   background-color: #fff;
   transition: background-color 0.3s;
@@ -38,21 +44,23 @@ nav.scrolled {
 .custom-logo {
   width: 80px;
   height: 65px;
-  object-fit: contain; /* Optional: keeps image from stretching */
+  object-fit: contain;
+  /* Optional: keeps image from stretching */
 }
 
 // navbar-end
 
 
 
-.btn-orange{
+.btn-orange {
   background-color: #ff7f22;
-    // color: #fff;
+  // color: #fff;
 }
 
 .text-danger {
   color: #ff7f22 !important;
 }
+
 .text-orange {
   color: #ff7f22 !important;
 }
@@ -108,6 +116,13 @@ nav.scrolled {
 .supports {
   display: flex;
   gap: 30px;
+  cursor: pointer;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+  color: #d9534f;
+  /* optional: highlight on hover */
 }
 
 .supports ul {
@@ -155,8 +170,9 @@ body.light-mode {
   color: #000000 !important;
 }
 
-.small, small {
-    font-size: .675em;
+.small,
+small {
+  font-size: .675em;
 }
 
 /* ------------------- DARK MODE ------------------- */
@@ -177,12 +193,13 @@ body.dark-mode {
 .navbar.dark-mode .navbar-brand,
 .navbar.dark-mode .nav-link.active,
 .navbar.dark-mode .nav-link:hover {
-  color:  #FF7052 !important; /* Highlight text on hover/active */
+  color: #FF7052 !important;
+  /* Highlight text on hover/active */
 }
 
 /* Optional: Override links, headings, etc. */
 body.dark-mode a {
-  color:  #FF7052;
+  color: #FF7052;
 }
 
 body.dark-mode h1,
